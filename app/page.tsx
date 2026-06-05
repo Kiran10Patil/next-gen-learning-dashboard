@@ -37,7 +37,7 @@ export default async function Home() {
         {/* Error Message */}
         {error && (
           <div className="bg-red-500 text-white p-4 rounded-xl mb-4">
-            Error loading courses
+            {error.message}
           </div>
         )}
 
