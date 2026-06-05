@@ -7,9 +7,6 @@ export default async function Home() {
     .select("*")
     .order("progress", { ascending: true });
 
-  console.log("COURSES:", courses);
-  console.log("ERROR:", error);
-
   return (
     <main className="min-h-screen bg-zinc-950 text-white flex">
       {/* Sidebar */}
@@ -40,24 +37,11 @@ export default async function Home() {
         {/* Error Message */}
         {error && (
           <div className="bg-red-500 text-white p-4 rounded-xl mb-4">
-            {error.message}
+            Error loading courses
           </div>
         )}
 
-        {/* Debug Data */}
-        <div className="bg-zinc-900 p-5 rounded-2xl mb-4">
-          <h2 className="text-xl font-bold mb-2">Debug Data</h2>
-
-          <p className="mb-2">
-            Error: {error ? JSON.stringify(error) : "No Error"}
-          </p>
-
-          <pre className="text-xs overflow-auto">
-            {JSON.stringify(courses, null, 2)}
-          </pre>
-        </div>
-
-        {/* Dynamic Course Cards */}
+        {/* Course Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {courses?.map((course) => (
             <CourseCard
