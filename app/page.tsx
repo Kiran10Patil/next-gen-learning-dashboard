@@ -6,6 +6,8 @@ export default async function Home() {
     .from("courses")
     .select("*")
     .order("progress", { ascending: true });
+    console.log("COURSES:", courses);
+    console.log("ERROR:", error);
 
   return (
     <main className="min-h-screen bg-zinc-950 text-white flex">
