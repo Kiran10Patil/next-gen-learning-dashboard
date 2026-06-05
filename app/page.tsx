@@ -6,8 +6,9 @@ export default async function Home() {
     .from("courses")
     .select("*")
     .order("progress", { ascending: true });
-    console.log("COURSES:", courses);
-    console.log("ERROR:", error);
+
+  console.log("COURSES:", courses);
+  console.log("ERROR:", error);
 
   return (
     <main className="min-h-screen bg-zinc-950 text-white flex">
@@ -42,6 +43,19 @@ export default async function Home() {
             {error.message}
           </div>
         )}
+
+        {/* Debug Data */}
+        <div className="bg-zinc-900 p-5 rounded-2xl mb-4">
+          <h2 className="text-xl font-bold mb-2">Debug Data</h2>
+
+          <p className="mb-2">
+            Error: {error ? JSON.stringify(error) : "No Error"}
+          </p>
+
+          <pre className="text-xs overflow-auto">
+            {JSON.stringify(courses, null, 2)}
+          </pre>
+        </div>
 
         {/* Dynamic Course Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
